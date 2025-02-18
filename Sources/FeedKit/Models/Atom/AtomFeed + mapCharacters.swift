@@ -59,7 +59,7 @@ extension AtomFeed {
         case .feedEntryRights:                                 self.entries?.last?.rights                                        = self.entries?.last?.rights?.appending(string) ?? string
         case .feedEntryAuthorName:
             guard self.entries?.last?.authors?.last?.name == nil else {
-                var author = AtomFeedEntryAuthor()
+                let author = AtomFeedEntryAuthor()
                 author.name = string
                 self.entries?.last?.authors?.append(author)
                 return
