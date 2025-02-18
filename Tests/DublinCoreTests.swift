@@ -41,7 +41,7 @@ class DublinCoreTests: BaseTestCase {
             XCTAssertNotNil(feed)
             
             XCTAssertEqual(feed?.dublinCore?.dcTitle, "title")
-            XCTAssertEqual(feed?.dublinCore?.dcCreator, "creator")
+            XCTAssertEqual(feed?.dublinCore?.dcCreator, ["creator"])
             XCTAssertEqual(feed?.dublinCore?.dcSubject, "subject")
             XCTAssertEqual(feed?.dublinCore?.dcDescription, "description")
             XCTAssertEqual(feed?.dublinCore?.dcPublisher, "publisher")
@@ -59,7 +59,7 @@ class DublinCoreTests: BaseTestCase {
             XCTAssertNotNil(feed?.items?.last?.dublinCore)
             
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcTitle, "title")
-            XCTAssertEqual(feed?.items?.last?.dublinCore?.dcCreator, "creator")
+            XCTAssertEqual(feed?.items?.last?.dublinCore?.dcCreator, ["creator 1", "creator 2"])
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcSubject, "subject")
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcDescription, "description")
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcPublisher, "publisher")
@@ -120,7 +120,7 @@ class DublinCoreTests: BaseTestCase {
             XCTAssertNotNil(feed)
             
             XCTAssertEqual(feed?.dublinCore?.dcTitle, "title")
-            XCTAssertEqual(feed?.dublinCore?.dcCreator, "creator")
+            XCTAssertEqual(feed?.dublinCore?.dcCreator, ["creator"])
             XCTAssertEqual(feed?.dublinCore?.dcSubject, "subject")
             XCTAssertEqual(feed?.dublinCore?.dcDescription, "description")
             XCTAssertEqual(feed?.dublinCore?.dcPublisher, "publisher")
@@ -138,7 +138,7 @@ class DublinCoreTests: BaseTestCase {
             XCTAssertNotNil(feed?.items?.last?.dublinCore)
             
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcTitle, "title")
-            XCTAssertEqual(feed?.items?.last?.dublinCore?.dcCreator, "creator")
+            XCTAssertEqual(feed?.items?.last?.dublinCore?.dcCreator, ["creator"])
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcSubject, "subject")
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcDescription, "description")
             XCTAssertEqual(feed?.items?.last?.dublinCore?.dcPublisher, "publisher")

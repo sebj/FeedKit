@@ -84,7 +84,8 @@ extension RSSFeed {
         case .rssChannelSyndicationUpdateFrequency:                 self.syndication?.syUpdateFrequency                             = Int(string)
         case .rssChannelSyndicationUpdateBase:                      self.syndication?.syUpdateBase                                  = string.toPermissiveDate()
         case .rssChannelDublinCoreTitle:                            self.dublinCore?.dcTitle                                        = self.dublinCore?.dcTitle?.appending(string) ?? string
-        case .rssChannelDublinCoreCreator:                          self.dublinCore?.dcCreator                                      = self.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rssChannelDublinCoreCreator:
+            self.dublinCore?.dcCreator.append(string)
         case .rssChannelDublinCoreSubject:                          self.dublinCore?.dcSubject                                      = self.dublinCore?.dcSubject?.appending(string) ?? string
         case .rssChannelDublinCoreDescription:                      self.dublinCore?.dcDescription                                  = self.dublinCore?.dcDescription?.appending(string) ?? string
         case .rssChannelDublinCorePublisher:                        self.dublinCore?.dcPublisher                                    = self.dublinCore?.dcPublisher?.appending(string) ?? string
@@ -99,7 +100,8 @@ extension RSSFeed {
         case .rssChannelDublinCoreCoverage:                         self.dublinCore?.dcCoverage                                     = self.dublinCore?.dcCoverage?.appending(string) ?? string
         case .rssChannelDublinCoreRights:                           self.dublinCore?.dcRights                                       = self.dublinCore?.dcRights?.appending(string) ?? string
         case .rssChannelItemDublinCoreTitle:                        self.items?.last?.dublinCore?.dcTitle                           = self.items?.last?.dublinCore?.dcTitle?.appending(string) ?? string
-        case .rssChannelItemDublinCoreCreator:                      self.items?.last?.dublinCore?.dcCreator                         = self.items?.last?.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rssChannelItemDublinCoreCreator:
+            self.items?.last?.dublinCore?.dcCreator.append(string)
         case .rssChannelItemDublinCoreSubject:                      self.items?.last?.dublinCore?.dcSubject                         = self.items?.last?.dublinCore?.dcSubject?.appending(string) ?? string
         case .rssChannelItemDublinCoreDescription:                  self.items?.last?.dublinCore?.dcDescription                     = self.items?.last?.dublinCore?.dcDescription?.appending(string) ?? string
         case .rssChannelItemDublinCorePublisher:                    self.items?.last?.dublinCore?.dcPublisher                       = self.items?.last?.dublinCore?.dcPublisher?.appending(string) ?? string
@@ -193,7 +195,8 @@ extension RSSFeed {
         case .rdfChannelSyndicationUpdateFrequency:                 self.syndication?.syUpdateFrequency                             = Int(string)
         case .rdfChannelSyndicationUpdateBase:                      self.syndication?.syUpdateBase                                  = string.toPermissiveDate()
         case .rdfChannelDublinCoreTitle:                            self.dublinCore?.dcTitle                                        = self.dublinCore?.dcTitle?.appending(string) ?? string
-        case .rdfChannelDublinCoreCreator:                          self.dublinCore?.dcCreator                                      = self.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rdfChannelDublinCoreCreator:
+            self.dublinCore?.dcCreator.append(string)
         case .rdfChannelDublinCoreSubject:                          self.dublinCore?.dcSubject                                      = self.dublinCore?.dcSubject?.appending(string) ?? string
         case .rdfChannelDublinCoreDescription:                      self.dublinCore?.dcDescription                                  = self.dublinCore?.dcDescription?.appending(string) ?? string
         case .rdfChannelDublinCorePublisher:                        self.dublinCore?.dcPublisher                                    = self.dublinCore?.dcPublisher?.appending(string) ?? string
@@ -208,7 +211,8 @@ extension RSSFeed {
         case .rdfChannelDublinCoreCoverage:                         self.dublinCore?.dcCoverage                                     = self.dublinCore?.dcCoverage?.appending(string) ?? string
         case .rdfChannelDublinCoreRights:                           self.dublinCore?.dcRights                                       = self.dublinCore?.dcRights?.appending(string) ?? string
         case .rdfItemDublinCoreTitle:                               self.items?.last?.dublinCore?.dcTitle                           = self.items?.last?.dublinCore?.dcTitle?.appending(string) ?? string
-        case .rdfItemDublinCoreCreator:                             self.items?.last?.dublinCore?.dcCreator                         = self.items?.last?.dublinCore?.dcCreator?.appending(string) ?? string
+        case .rdfItemDublinCoreCreator:
+            self.items?.last?.dublinCore?.dcCreator.append(string)
         case .rdfItemDublinCoreSubject:                             self.items?.last?.dublinCore?.dcSubject                         = self.items?.last?.dublinCore?.dcSubject?.appending(string) ?? string
         case .rdfItemDublinCoreDescription:                         self.items?.last?.dublinCore?.dcDescription                     = self.items?.last?.dublinCore?.dcDescription?.appending(string) ?? string
         case .rdfItemDublinCorePublisher:                           self.items?.last?.dublinCore?.dcPublisher                       = self.items?.last?.dublinCore?.dcPublisher?.appending(string) ?? string

@@ -37,7 +37,7 @@ public final class DublinCoreNamespace {
     /// 
     /// Examples of a Creator include a person, an organization, or a service. 
     /// Typically, the name of a Creator should be used to indicate the entity.
-    public var dcCreator: String?
+    public var dcCreator: [String] = []
     
     /// The topic of the content of the resource
     /// 

@@ -18,7 +18,8 @@
         <dc:rights>rights</dc:rights>
         <item>
             <dc:title>title</dc:title>
-            <dc:creator>creator</dc:creator>
+            <dc:creator>creator 1</dc:creator>
+            <dc:creator>creator 2</dc:creator>
             <dc:subject>subject</dc:subject>
             <dc:description>description</dc:description>
             <dc:publisher>publisher</dc:publisher>
