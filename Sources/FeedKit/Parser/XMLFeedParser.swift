@@ -66,10 +66,12 @@ final class XMLFeedParser: NSObject, XMLParserDelegate, FeedParserProtocol {
 
     /// The current path along the XML's DOM elements. Path components are
     /// updated to reflect the current XML element being parsed.
-    /// e.g. "/rss/channel/title" means it's currently parsing the channels
+    /// e.g. "/rss/channel/title" means it's currently parsing the channel's
     /// `<title>` element.
     fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
-    
+
+    private var currentCharacters = ""
+
     /// A parsing error, if any.
     var parsingError: Error?
     var parseComplete = false
@@ -145,7 +147,8 @@ extension XMLFeedParser {
         qualifiedName qName: String?,
         attributes attributeDict: [String : String])
     {
-        
+        currentCharacters = ""
+
         // Update the current path along the XML's DOM elements by appending the new component with `elementName`.
         self.currentXMLDOMPath = self.currentXMLDOMPath.appendingPathComponent(elementName)
         
@@ -190,6 +193,9 @@ extension XMLFeedParser {
         namespaceURI: String?,
         qualifiedName qName: String?)
     {
+        self.map(currentCharacters)
+        currentCharacters = ""
+
         // Update the current path along the XML's DOM elements by deleting last component.
         self.currentXMLDOMPath = self.currentXMLDOMPath.deletingLastPathComponent()
         if currentXMLDOMPath.absoluteString == "/" {
@@ -206,9 +212,13 @@ extension XMLFeedParser {
         }
         self.map(string)
     }
-    
+
     func parser(_ parser: XMLParser, foundCharacters string: String) {
-        self.map(string)
+        guard !string.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return
+        }
+
+        self.currentCharacters += string
     }
     
     func parser(_ parser: XMLParser, parseErrorOccurred parseError: Error) {
