@@ -30,12 +30,16 @@ extension String {
   ///   from the original comma-separated string. Each keyword is trimmed of
   ///   whitespace. Returns `nil` if there are no keywords.
   func toKeywords() -> [String]? {
-    // Split the string by commas
-    let components = split(separator: ",")
-      .map { $0.trimmingCharacters(in: .whitespaces) }
-      .filter { !$0.isEmpty } // Remove empty or whitespace-only components
+    guard !isEmpty else {
+      return nil
+    }
+
+    let keywords = split(separator: ",").compactMap { component in
+      let trimmedComponent = component.trimmingCharacters(in: .whitespaces)
+      return trimmedComponent.isEmpty ? nil : trimmedComponent
+    }
 
     // Return nil if there are no valid keywords
-    return components.isEmpty ? nil : components
+    return keywords.isEmpty ? nil : keywords
   }
 }
