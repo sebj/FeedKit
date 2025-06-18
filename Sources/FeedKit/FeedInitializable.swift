@@ -114,6 +114,10 @@ public extension FeedInitializable {
   /// - Parameter string: The feed content as a string.
   /// - Throws: An error if the string cannot be converted to data or parsed.
   init(string: String) throws {
+    guard !string.isEmpty else {
+      throw FeedError.invalidUtf8String
+    }
+
     guard let data = string.data(using: .utf8) else {
       throw FeedError.invalidUtf8String
     }
